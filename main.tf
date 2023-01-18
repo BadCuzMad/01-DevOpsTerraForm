@@ -25,7 +25,6 @@ locals {
     "TIMEOUT=20",
     "TIME_SPENT=0",
     "echo \"debug\"",
-    "set -x",
     "until docker ps ; do",
     "sleep 5",
     "echo \"debug 2 $TIMEOUT $TIME_SPENT\"",
