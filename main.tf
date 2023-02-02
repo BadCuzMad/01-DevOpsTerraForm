@@ -53,6 +53,7 @@ locals {
 resource "null_resource" "launch_docker" {
   # Changes to any instance of the cluster requires re-provisioning
   triggers = {
+    instance_id = aws_instance.web.id
     instance_ip = aws_eip.lb.public_ip
     script      = md5(join("-", local.docker_provision_script))
   }
