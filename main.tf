@@ -29,7 +29,7 @@ resource "aws_eip" "lb" {
 data "aws_subnet" "selected" {
   filter {
     name   = "tag:Name"
-    values = ["copied_subnet_knm"]
+    values = ["delete-me-publicly"]
   }
 }
 
@@ -135,3 +135,18 @@ data "aws_ami" "ubuntu" {
 //create aws resource eip
 //associate aws eip with instance
 //
+
+
+
+
+
+
+
+
+/*create: 
+load balancer
+target group
+ecs task-definition
+ecs service
+esc cluster
+security group*/
