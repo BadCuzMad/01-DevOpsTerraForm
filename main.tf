@@ -27,7 +27,7 @@ data "aws_subnet" "selected" {
 
 locals {
   docker_provision_script = [
-    "TIMEOUT=20",
+    "TIMEOUT=200",
     "TIME_SPENT=0",
     "echo \"debug\"",
     "until docker ps ; do",
