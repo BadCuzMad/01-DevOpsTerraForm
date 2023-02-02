@@ -6,12 +6,20 @@ resource "aws_instance" "web" {
   subnet_id                   = data.aws_subnet.selected.id
   vpc_security_group_ids      = ["sg-0e030a14de5ebaebb"]
   //associate_public_ip_address = "false" //false and change source below
-
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      associate_public_ip_address,
+    ]
+  }
   user_data = file("script.sh")
   tags = {
     Name = "RemoteTF"
   }
 }
+
+
 
 resource "aws_eip" "lb" {
   instance = aws_instance.web.id
