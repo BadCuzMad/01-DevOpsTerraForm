@@ -5,7 +5,7 @@ resource "aws_instance" "web" {
   //subnet_id                   = "subnet-08cc83fbae517191c"
   subnet_id                   = data.aws_subnet.selected.id
   vpc_security_group_ids      = ["sg-0e030a14de5ebaebb"]
-  associate_public_ip_address = "false" //false and change source below
+  //associate_public_ip_address = "false" //false and change source below
 
   user_data = file("script.sh")
   tags = {
