@@ -3,8 +3,8 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   key_name      = "another_key"
   //subnet_id                   = "subnet-08cc83fbae517191c"
-  subnet_id                   = data.aws_subnet.selected.id
-  vpc_security_group_ids      = ["sg-0e030a14de5ebaebb"]
+  subnet_id              = data.aws_subnet.selected.id
+  vpc_security_group_ids = ["sg-0e030a14de5ebaebb"]
   //associate_public_ip_address = "false" //false and change source below
   lifecycle {
     ignore_changes = [
