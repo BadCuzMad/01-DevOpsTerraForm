@@ -15,7 +15,7 @@ terraform {
 
 
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
   //profile = "demo_acc"
   //shared_config_files      = ["%USERPROFILE%\\.aws\\config"]
   //shared_credentials_files = ["%USERPROFILE%\\.aws\\credentials"]
