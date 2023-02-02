@@ -21,3 +21,21 @@ variable "default_ssh_key" {
   default     = ""
   description = "description"
 }
+
+variable "ipsec_psk" {
+  type        = string
+  default     = ""
+  description = "description"
+}
+
+variable "vpn_user" {
+  type        = string
+  default     = ""
+  description = "description"
+}
+
+variable "vpn_password" {
+  type        = string
+  default     = ""
+  description = "description"
+}

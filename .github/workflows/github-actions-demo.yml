@@ -61,6 +61,9 @@ jobs:
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       env: 
         TF_VAR_default_ssh_key: ${{ secrets.DEFAULT_SSH_KEY }}
+        TF_VAR_ipsec_psk: ${{ secrets.VPN_PSK }}
+        TF_VAR_vpn_password: ${{ secrets.VPN_PASS }}
+        TF_VAR_vpn_user: ${{ secrets.VPN_USER }}
       run: |
         echo "$TF_VAR_default_ssh_key"
         terraform apply -auto-approve -input=false
