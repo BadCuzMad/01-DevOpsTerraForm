@@ -183,7 +183,7 @@ resource "aws_ecs_task_definition" "jenkins" {
       }
     }
   }
-  container_definitions    = <<DEFINITION
+  container_definitions = <<DEFINITION
   [
   {
     "image": "public.ecr.aws/l2r0j2v4/jenkins",
@@ -468,15 +468,15 @@ resource "aws_efs_access_point" "test" {
 }
 
 resource "aws_efs_mount_target" "mount-target-1" {
-  file_system_id = aws_efs_file_system.jenkins_fs.id
-  subnet_id      = "subnet-0bb70a8a551169bfb"
-  security_groups    = [data.aws_security_group.selected.id]
+  file_system_id  = aws_efs_file_system.jenkins_fs.id
+  subnet_id       = "subnet-0bb70a8a551169bfb"
+  security_groups = [data.aws_security_group.selected.id]
 }
 
 resource "aws_efs_mount_target" "mount-target-2" {
-  file_system_id = aws_efs_file_system.jenkins_fs.id
-  subnet_id      = "subnet-0e0fe6858a8cc2b48"
-  security_groups    = [data.aws_security_group.selected.id]
+  file_system_id  = aws_efs_file_system.jenkins_fs.id
+  subnet_id       = "subnet-0e0fe6858a8cc2b48"
+  security_groups = [data.aws_security_group.selected.id]
 }
 //subnet-099fdf1b99f7b24e7
 //subnet-0b5d1f1f7d9c68acc
