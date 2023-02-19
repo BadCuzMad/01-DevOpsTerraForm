@@ -18,7 +18,7 @@ resource "aws_instance" "web" {
     Name = "RemoteTF"
   }
 }
-//change for github
+
 resource "aws_eip" "eip" {
   instance = aws_instance.web.id
   vpc      = true
