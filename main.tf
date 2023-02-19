@@ -192,7 +192,7 @@ resource "aws_ecs_task_definition" "jenkins" {
     "name": "jenkins",
     "mountPoints": [
                 {
-                    "containerPath": "/opt/data",
+                    "containerPath": "/var/jenkins_home",
                     "readOnly": false,
                     "sourceVolume": "jenkins-fs"
                 }
@@ -202,6 +202,7 @@ resource "aws_ecs_task_definition" "jenkins" {
             "name": "jenkins-fs",
             "efsVolumeConfiguration": {
                 "fileSystemId": "${aws_efs_file_system.jenkins_fs.id}",
+                "rootDirectory": "/jenkins_home",
                 "transitEncryption": "ENABLED"
             }
         }
