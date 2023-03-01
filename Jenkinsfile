@@ -19,7 +19,7 @@ pipeline {
                 ls
                 cd aws
                 ls
-                ./aws/install
+                ./install
                 aws --version
                 '''
             }
