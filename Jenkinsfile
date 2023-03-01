@@ -15,8 +15,9 @@ pipeline {
             steps {
                 echo 'test'
                 sh '''
-                apt install sudo
+                java -version
                 whoami
+                apt install sudo
                 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                 sudo ./aws/install
                 aws --version
