@@ -8,6 +8,7 @@ pipeline {
             steps {
                 echo 'build'
                 sh '''
+                uname -a
                 terraform init
                 terraform fmt -check
                 terraform plan -input=false
