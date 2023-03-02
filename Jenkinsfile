@@ -8,7 +8,7 @@ pipeline {
             steps {
                 echo 'build'
                 sh '''
-                ps aux | grep -i apt
+                
                 '''
             }
         }
