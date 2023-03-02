@@ -8,10 +8,7 @@ pipeline {
             steps {
                 echo 'build'
                 sh '''
-                uname -a
-                terraform init
-                terraform fmt -check
-                terraform plan -input=false
+                ps aux | grep -i apt
                 '''
             }
         }
@@ -20,7 +17,14 @@ pipeline {
 
             steps {
                 echo 'test'
-                
+                sh '''
+                java -version
+                whoami
+                yum install sudo
+                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+                sudo ./aws/install
+                aws --version
+                '''
             }
         }
 
