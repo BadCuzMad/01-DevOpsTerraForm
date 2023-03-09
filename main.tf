@@ -174,7 +174,7 @@ resource "aws_ecs_task_definition" "jenkins" {
 
     efs_volume_configuration {
       file_system_id          = aws_efs_file_system.jenkins_fs.id
-      root_directory          = "/opt/data"
+      root_directory          = "/"
       transit_encryption      = "ENABLED"
       transit_encryption_port = 2999
       authorization_config {
@@ -466,6 +466,20 @@ resource "aws_efs_file_system" "jenkins_fs" {
 
 resource "aws_efs_access_point" "test" {
   file_system_id = aws_efs_file_system.jenkins_fs.id
+
+  posix_user {
+    gid = 0
+    uid = 0
+  }
+
+  root_directory {
+    path = "/"
+    creation_info {
+      owner_gid   = 1000 # jenkins
+      owner_uid   = 1000 # jenkins
+      permissions = "755"
+    }
+  }
 }
 
 resource "aws_efs_mount_target" "mount-target-1" {
