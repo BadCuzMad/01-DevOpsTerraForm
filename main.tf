@@ -338,7 +338,7 @@ resource "aws_lb_listener_rule" "jenkins" {
 #     values = ["t1"]
 #   }
 # }
-//
+
 # data "aws_subnets" "private_subnet" {
 #   filter {
 #     name   = "tag:Avail"
