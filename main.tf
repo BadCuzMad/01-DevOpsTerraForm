@@ -183,19 +183,18 @@ resource "aws_ecs_task_definition" "jenkins" {
       }
     }
   }
-  container_definitions = <<DEFINITION
-  [
-  {
-    "command": [
-            "ls -al /var/jenkins_home",
-            "chown 1000:1000 /var/jenkins_home",
-            "ls -al /var/jenkins_home"
+  /**"command": [
+            "echo '================================================'\n ls -al /var/jenkins_home\n echo '================================================'\n chown -R 1000:1000 /var/jenkins_home\n ls -al /var/jenkins_home \n sleep 600 \n"
     ],
     "entryPoint": [
             "sh",
             "-c"
-    ],
-    "image": "public.ecr.aws/l2r0j2v4/alpine",
+    ],*/
+  container_definitions = <<DEFINITION
+  [
+  {
+    
+    "image": "public.ecr.aws/l2r0j2v4/jenkins",
     "cpu": 0,
     "memory": 2048,
     "name": "jenkins",
