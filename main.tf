@@ -186,7 +186,16 @@ resource "aws_ecs_task_definition" "jenkins" {
   container_definitions = <<DEFINITION
   [
   {
-    "image": "public.ecr.aws/l2r0j2v4/jenkins",
+    "command": [
+            "ls -al /var/jenkins_home",
+            "chown 1000:1000 /var/jenkins_home",
+            "ls -al /var/jenkins_home"
+    ],
+    "entryPoint": [
+            "sh",
+            "-c"
+    ],
+    "image": "public.ecr.aws/l2r0j2v4/alpine",
     "cpu": 0,
     "memory": 2048,
     "name": "jenkins",
@@ -202,7 +211,7 @@ resource "aws_ecs_task_definition" "jenkins" {
             "name": "jenkins-fs",
             "efsVolumeConfiguration": {
                 "fileSystemId": "${aws_efs_file_system.jenkins_fs.id}",
-                "rootDirectory": "/jenkins_home",
+                "rootDirectory": "/",
                 "transitEncryption": "ENABLED"
             }
         }
