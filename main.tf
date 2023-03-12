@@ -167,7 +167,7 @@ resource "aws_ecs_task_definition" "jenkins" {
   network_mode             = "awsvpc"
   cpu                      = 1024
   memory                   = 2048
-  task_role_arn            = "arn:aws:iam::482720962971:role/ecsTaskExecutionRole"
+  task_role_arn            = "arn:aws:iam::482720962971:role/ecsTaskExecutionRole"//put here role to run fargate insts
   execution_role_arn       = "arn:aws:iam::482720962971:role/ecsTaskExecutionRole"
   volume {
     name = "jenkins-fs"
@@ -524,3 +524,5 @@ security group => vpc
 2.Перевесить действие на воркер и найти логи воркера
 3.Переписать гитхаб экшны
 */
+
+/* role should have policy to access ecs attached*/
